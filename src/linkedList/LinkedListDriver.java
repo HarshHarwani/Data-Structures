@@ -8,12 +8,12 @@ public class LinkedListDriver {
 	public static void main(String args[]){
 		linkedList=new LinkedList<Integer>();
 		linkedList.addFirst(1);
-		linkedList.addFirst(2);
-		linkedList.addFirst(3);
+		linkedList.addLast(2);
+		linkedList.addLast(3);
 		try{
-		linkedList.addAtIndex(8, 1);
+		linkedList.addLast(8);
 		linkedList.addLast(10);
-		linkedList.addFirst(11);
+		linkedList.addLast(11);
 		LLNode<Integer> head=linkedList.getHead();
 		string=linkedList.printLinkedList(head);
 		System.out.println("Original List is-->"+string);
@@ -27,7 +27,15 @@ public class LinkedListDriver {
 		System.out.println("The nth node from last is-->"+nthNodeFromLast.data);
 		//calling to reverse the LinkedList
 		LLNode<Integer> modifiedHead=new ReverseLinkedList<Integer>().reverseLL(head);
-		System.out.print("Reversed List is -->"+linkedList.printLinkedList(modifiedHead));
+		System.out.println("Reversed List is -->"+linkedList.printLinkedList(modifiedHead));
+		// calling to get the startOfLoop if the loop exists
+	/*	LLNode<Integer> node=linkedList.getItem(modifiedHead, 10);
+		node.next=modifiedHead;*/
+		LLNode<Integer> startOfLoop=new DetectAndRemoveLoop<Integer>().detectAndRemoveLoop(modifiedHead);
+		if(startOfLoop!=null)
+		System.out.println("Start of the loop is -->"+startOfLoop.data);
+		else
+			System.out.println("There is no loop in the LinkedList");
 		}catch(LinkedListException e){
 			e.printStackTrace();
 		}

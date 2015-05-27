@@ -93,6 +93,17 @@ public class LinkedList<Item> {
 			e.printStackTrace();
 		}
 	}
+	public LLNode<Item> getItem(LLNode<Item> head,Item data) throws LinkedListException{
+		if(head==null){
+			throw new LinkedListException("LinkedList is Empty");
+		}else{
+			LLNode<Item> current=head;
+			while(current.data!=data){
+				current=current.next;
+			}
+			return current;
+		}
+	}
 	
 	/**
 	 * @param data
