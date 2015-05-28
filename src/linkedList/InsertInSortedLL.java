@@ -1,5 +1,48 @@
 package linkedList;
 
-public class InsertInSortedLL {
+import java.util.Comparator;
+
+public class InsertInSortedLL<Item extends Comparable<Item>> implements Comparator<Item> {
+
+	public LLNode<Item> insertInSorted(LLNode<Item> head,Item data){
+		LLNode<Item> prev=null;
+		if(head==null){
+			System.out.println("LinkedList is empty,Creating a new node");
+			LLNode<Item> node=new LLNode<Item>(data);
+			head=node;
+			head.next=null;
+		}else{
+			//creating a new linkedList with the given head
+			LinkedList<Item> linkedList=new LinkedList<Item>(head);
+			LLNode<Item> current=linkedList.getHead();
+			if(compare(data,current.data)<1){
+				linkedList.addFirst(data);
+			}else{
+				while(current!=null){
+					if(compare(data,current.data)<1 || compare(data,current.data)==0){
+						LLNode<Item> newNode=new LLNode<Item>(data);
+						prev.next=newNode;
+						newNode.next=current;
+						break;
+					}
+					prev=current;
+					current=current.next;
+				}
+				if(current==null){
+					LLNode<Item> newNode=new LLNode<Item>(data);
+					prev.next=newNode;
+					newNode.next=null;
+				}
+			}
+			return linkedList.getHead();
+		}
+		return null;
+		
+	}
+
+	@Override
+	public int compare(Item o1, Item o2) {
+		return o1.compareTo(o2);
+	}
 
 }

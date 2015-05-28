@@ -26,16 +26,18 @@ public class LinkedListDriver {
 		if(nthNodeFromLast!=null)
 		System.out.println("The nth node from last is-->"+nthNodeFromLast.data);
 		//calling to reverse the LinkedList
-		LLNode<Integer> modifiedHead=new ReverseLinkedList<Integer>().reverseLL(head);
-		System.out.println("Reversed List is -->"+linkedList.printLinkedList(modifiedHead));
+		/*LLNode<Integer> modifiedHead=new ReverseLinkedList<Integer>().reverseLL(head);
+		System.out.println("Reversed List is -->"+linkedList.printLinkedList(modifiedHead));*/
 		// calling to get the startOfLoop if the loop exists
 	/*	LLNode<Integer> node=linkedList.getItem(modifiedHead, 10);
 		node.next=modifiedHead;*/
-		LLNode<Integer> startOfLoop=new DetectAndRemoveLoop<Integer>().detectAndRemoveLoop(modifiedHead);
+		LLNode<Integer> startOfLoop=new DetectAndRemoveLoop<Integer>().detectAndRemoveLoop(head);
 		if(startOfLoop!=null)
 		System.out.println("Start of the loop is -->"+startOfLoop.data);
 		else
 			System.out.println("There is no loop in the LinkedList");
+		LLNode<Integer> start=new InsertInSortedLL<Integer>().insertInSorted(head,12);
+		System.out.println(linkedList.printLinkedList(start));
 		}catch(LinkedListException e){
 			e.printStackTrace();
 		}

@@ -17,6 +17,9 @@ public class LinkedList<Item> {
 	public LinkedList() {
 		head=null;
 	}
+	public LinkedList(LLNode<Item> head){
+		this.head=head;
+	}
 	/**
 	 * Returns true if the list is Empty
 	 */

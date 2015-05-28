@@ -18,7 +18,6 @@ public class CheckLLPalindrome<Item> {
 	}
 	
 	public Result checkPalindromeRecurse(LLNode<Item> node,int size){
-		
 		return null;
 	}
 
