@@ -36,7 +36,7 @@ public class LinkedListDriver {
 		System.out.println("Start of the loop is -->"+startOfLoop.data);
 		else
 			System.out.println("There is no loop in the LinkedList");
-		LLNode<Integer> start=new InsertInSortedLL<Integer>().insertInSorted(head,12);
+		LLNode<Integer> start=new InsertInSortedLL<Integer>().insertInSorted(head,15);
 		System.out.println(linkedList.printLinkedList(start));
 		}catch(LinkedListException e){
 			e.printStackTrace();

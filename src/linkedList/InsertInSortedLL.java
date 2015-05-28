@@ -15,9 +15,11 @@ public class InsertInSortedLL<Item extends Comparable<Item>> implements Comparat
 			//creating a new linkedList with the given head
 			LinkedList<Item> linkedList=new LinkedList<Item>(head);
 			LLNode<Item> current=linkedList.getHead();
+			//case 1 where given key is less than the first node
 			if(compare(data,current.data)<1){
 				linkedList.addFirst(data);
 			}else{
+				//case 2 where given key is less than any oher node other than the first node
 				while(current!=null){
 					if(compare(data,current.data)<1 || compare(data,current.data)==0){
 						LLNode<Item> newNode=new LLNode<Item>(data);
@@ -28,11 +30,10 @@ public class InsertInSortedLL<Item extends Comparable<Item>> implements Comparat
 					prev=current;
 					current=current.next;
 				}
+				//case 3 where the given key is the largest so its added to the end of the list.
 				if(current==null){
-					LLNode<Item> newNode=new LLNode<Item>(data);
-					prev.next=newNode;
-					newNode.next=null;
-				}
+					linkedList.addLast(data);
+				} 
 			}
 			return linkedList.getHead();
 		}
