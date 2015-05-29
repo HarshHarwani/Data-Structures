@@ -8,7 +8,7 @@ public class LinkedListDriver {
 	public static void main(String args[]){
 		linkedList=new LinkedList<Integer>();
 		linkedList.addFirst(1);
-		linkedList.addLast(2);
+		linkedList.addLast(3);
 		linkedList.addLast(3);
 		try{
 		linkedList.addLast(8);
@@ -36,8 +36,18 @@ public class LinkedListDriver {
 		System.out.println("Start of the loop is -->"+startOfLoop.data);
 		else
 			System.out.println("There is no loop in the LinkedList");
+		
+		//Calling to insert a node in a sortedLL
 		LLNode<Integer> start=new InsertInSortedLL<Integer>().insertInSorted(head,15);
 		System.out.println(linkedList.printLinkedList(start));
+		
+		//calling to remove duplicates from a sortedLL
+		LLNode<Integer> newHead=new RemoveDuplicatesFromSortedLL<Integer>().removeDuplicatesSortedLL(start);
+		System.out.println("LinkedList after removing duplicates is-->"+" "+linkedList.printLinkedList(newHead));
+		
+		//calling to remove duplicates from a unSortedLL
+		LLNode<Integer> moHead=new ReverseLinkedListRecursive<Integer>().reverseLinkedList(newHead);
+		System.out.println("LinkedList after recursive reverse is-->"+" "+linkedList.printLinkedList(moHead));
 		}catch(LinkedListException e){
 			e.printStackTrace();
 		}

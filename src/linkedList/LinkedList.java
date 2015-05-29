@@ -7,7 +7,7 @@ public class LinkedList<Item> {
 	private static int listcount;
 	
 	public LLNode<Item> getHead() {
-		return head;
+		return this.head;
 	}
 
 	public void setHead(LLNode<Item> head) {
