@@ -46,6 +46,8 @@ public class LinkedList<Item> {
 		}
 		listcount++;
 	}
+	
+
 	/**
 	 * 
 	 * Adding data to the end of the list.
@@ -107,7 +109,6 @@ public class LinkedList<Item> {
 			return current;
 		}
 	}
-	
 	/**
 	 * @param data
 	 * @description remove given data from the LinkedList

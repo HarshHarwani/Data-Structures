@@ -45,9 +45,32 @@ public class LinkedListDriver {
 		LLNode<Integer> newHead=new RemoveDuplicatesFromSortedLL<Integer>().removeDuplicatesSortedLL(start);
 		System.out.println("LinkedList after removing duplicates is-->"+" "+linkedList.printLinkedList(newHead));
 		
-		//calling to remove duplicates from a unSortedLL
+		//calling to reverse a LinkedList recursively
 		LLNode<Integer> moHead=new ReverseLinkedListRecursive<Integer>().reverseLinkedList(newHead);
 		System.out.println("LinkedList after recursive reverse is-->"+" "+linkedList.printLinkedList(moHead));
+		
+		
+		//calling to find the intersection of two LinkedLists
+		LinkedList<Integer> list1=new LinkedList<Integer>();
+		list1.addLast(1);
+		list1.addLast(2);
+		list1.addLast(3);
+		list1.addLast(4);
+		LLNode<Integer> headlist1=list1.getHead();
+		LLNode<Integer> node1=list1.getItem(headlist1,4);
+		LinkedList<Integer> list2=new LinkedList<Integer>();
+		list2.addLast(3);
+		list2.addLast(4);
+		list2.addLast(5);
+		list2.addLast(6);
+		LLNode<Integer> headlist2=list2.getHead();
+		LLNode<Integer> node2=list1.getItem(headlist2,4);
+		node1.next=node2;
+		LLNode<Integer> intersectionPoint=new IntersectionOfTwoLL<Integer>().getIntersectionLL(headlist1, headlist2);
+		if(intersectionPoint!=null)
+		System.out.println("Intersection point of the LinkedList is-->"+" "+intersectionPoint.data);
+		else
+			System.out.println("There is no intersection point in the linkedList");	
 		}catch(LinkedListException e){
 			e.printStackTrace();
 		}
