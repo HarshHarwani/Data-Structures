@@ -9,30 +9,11 @@ public class HHashMap<Item> {
 	 entry = new Object[SIZE];
 	}
 	
-	/*
-	 *  
-	private Object[] a;
-
-    public GenSet(int s) {
-        a = new Object[s];
-    }
-
-    E get(int i) {
-        @SuppressWarnings("unchecked")
-        final E e = (E) a[i];
-        return e;
-    }	
-	 */
-		
 	
-	//entry=(HashEntry<Item>[]) new Object[SIZE];
-	//entry is the array of hashEntry objects which contain the actual key and value and
-	//next pointer to the another object in the linked-list in that bucket location
-
-
 	public void put(Item key,Item value){
 		int hash=key.hashCode()%SIZE;
 		// I have to include  a cast as java doesn't support generic arrays.
+		@SuppressWarnings("unchecked")
 		HashEntry<Item> entryObject=(HashEntry<Item>) entry[hash];
 		//first we check that if there is any entryObject at that particular position 
 		if(entryObject!=null){
@@ -59,6 +40,7 @@ public class HHashMap<Item> {
 	public Item get(Item key){
 		int hash=key.hashCode()%SIZE;
 		//get the entry object at the hash position of the key-hash
+		@SuppressWarnings("unchecked")
 		HashEntry<Item> entryObject=(HashEntry<Item>) entry[hash];
 		//iterate through the linked list at the bucket position compare the key and return
 		//the corresponding value
