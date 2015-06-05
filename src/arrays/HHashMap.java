@@ -1,20 +1,39 @@
 package arrays;
 
-public class HHashMap {
+public class HHashMap<Item> {
 
 	private final int SIZE=64;
-	HashEntry[] entry;
+	private Object[] entry;
+	//HashEntry<Item>[] entry;
 	public HHashMap() {
-	 entry=new HashEntry[SIZE];
-	//entry is the array of hashEntry objects which contain the actual key and value and
-	 //next pointer to the another object in the linked-list in that bucket location
+	 entry = new Object[SIZE];
 	}
 	
-	
+	/*
+	 *  
+	private Object[] a;
 
-	public void put(String key,String value){
+    public GenSet(int s) {
+        a = new Object[s];
+    }
+
+    E get(int i) {
+        @SuppressWarnings("unchecked")
+        final E e = (E) a[i];
+        return e;
+    }	
+	 */
+		
+	
+	//entry=(HashEntry<Item>[]) new Object[SIZE];
+	//entry is the array of hashEntry objects which contain the actual key and value and
+	//next pointer to the another object in the linked-list in that bucket location
+
+
+	public void put(Item key,Item value){
 		int hash=key.hashCode()%SIZE;
-		HashEntry entryObject=entry[hash];
+		// I have to include  a cast as java doesn't support generic arrays.
+		HashEntry<Item> entryObject=(HashEntry<Item>) entry[hash];
 		//first we check that if there is any entryObject at that particular position 
 		if(entryObject!=null){
 			//if the key equals the key already inserted, we replace the value
@@ -27,20 +46,20 @@ public class HHashMap {
 				while(entryObject.getNext()!=null){
 					entryObject=entryObject.getNext();
 				}
-				HashEntry newEntry=new HashEntry(key, value);
+				HashEntry<Item> newEntry=new HashEntry<Item>(key, value);
 				entryObject.next=newEntry;
 			}
 		}else{
 			//else we create a new entry object and insert it into the hash position
-			HashEntry newEntry=new HashEntry(key, value);
+			HashEntry<Item> newEntry=new HashEntry<Item>(key, value);
 			entry[hash]=newEntry;
 		}
 	}
 	
-	public String get(String key){
+	public Item get(Item key){
 		int hash=key.hashCode()%SIZE;
 		//get the entry object at the hash position of the key-hash
-		HashEntry entryObject=entry[hash];
+		HashEntry<Item> entryObject=(HashEntry<Item>) entry[hash];
 		//iterate through the linked list at the bucket position compare the key and return
 		//the corresponding value
 		while(entryObject!=null){
