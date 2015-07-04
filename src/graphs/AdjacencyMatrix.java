@@ -1,5 +1,11 @@
 package graphs;
 
+/**
+ * 
+ * @author hharwani
+ * Adjacency matrix is way where graph is stored, in this methodspace is a trade-off
+ * for most of the graph methods, here space is proportional to the square of number of vertices i.e approx o(n^2) 
+ */
 public class AdjacencyMatrix {
 
     private boolean[][] adjMatrix;
@@ -29,7 +35,7 @@ public class AdjacencyMatrix {
     public boolean isEdge(int i, int j) {
         System.out.println(adjMatrix[i][j]);
         return adjMatrix[i][j];
-    }
+    }   
     
     public void printGraph() {
         for (int i = 0; i < this.vertexCount; i++ ) {

@@ -20,7 +20,12 @@ public class GraphDriver {
         aList.addEdge(2, 3);
         aList.isEdge(0, 1);
         aList.isEdge(0, 3);
-        aList.isEdge(0, 2);
+        aList.isEdge(2, 0);
+        aList.isEdge(2, 0);
+        aList.printGraph();
+        aList.removeEdge(0, 3);
+        aList.removeEdge(1, 2);
+        aList.removeEdge(3, 2);
         aList.printGraph();
     }
 }
