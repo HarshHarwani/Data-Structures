@@ -53,7 +53,8 @@ public class AdjacencyList {
             throw new java.lang.IndexOutOfBoundsException("Indices out of range");
         }
     }
-   public void removeEdge(int i, int j) {
+   
+    public void removeEdge(int i, int j) {
         if (isIndicesValid(i, j)) {
             vertexClass vClass = vertexArray[i];
             LinkedList<Integer> linkedList=vClass.getAdjacencyList();

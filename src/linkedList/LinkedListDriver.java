@@ -74,6 +74,27 @@ public class LinkedListDriver {
 		}catch(LinkedListException e){
 			e.printStackTrace();
 		}
-	
+		//calling to test removeElement functionality
+		LinkedList<Integer> linkedList=new LinkedList<Integer>();
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        linkedList.addFirst(1);
+        LLNode<Integer> head=linkedList.getHead();
+        RemoveElements<Integer> re=new RemoveElements<Integer>();
+        LLNode<Integer> res=re.removeElements(head, 1);
+        try {
+            System.out.println(linkedList.printLinkedList(res));
+        } catch (LinkedListException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 	}
 }
