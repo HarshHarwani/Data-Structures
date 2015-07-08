@@ -47,6 +47,7 @@ public class HHashMap<Item> {
 		while(entryObject!=null){
 			if(entryObject.getKey().equals(key))
 				return entryObject.getValue();
+			entryObject=entryObject.next;
 			}
 		return null;
 		}

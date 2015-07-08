@@ -1,18 +1,48 @@
 package arrays;
 
 public class ArrayDriver {
-	
-	public static void main(String args[]){
-	//NoOfWays noOfWays=new NoOfWays();
-		//noOfWays.N=8;
-		//noOfWays.CountNoOfWays(1, 8, 2);
-	//	System.out.println(NoOfWays.count);
-		HHashMap<String> hashMap=new HHashMap<String>();
-		hashMap.put("Harsh", "Gajab");
-		hashMap.put("Harsh", "Bhukka");
-		hashMap.put("Nikul", "Gajab");
-		System.out.println(hashMap.get("Harsh"));
-		System.out.println(hashMap.get("Nikul"));
-	}
+
+    public static void main(String args[]) {
+        // NoOfWays noOfWays=new NoOfWays();
+        // noOfWays.N=8;
+        // noOfWays.CountNoOfWays(1, 8, 2);
+        // System.out.println(NoOfWays.count);
+
+        // Hashmap implementation
+
+        HHashMap<String> hashMap = new HHashMap<String>();
+        hashMap.put("Harsh", "Gajab");
+        hashMap.put("Harsh", "Bhukka");
+        hashMap.put("Nikul", "Gajab");
+        System.out.println(hashMap.get("Harsh"));
+        System.out.println(hashMap.get("Nikul")); // merge sorted arrays
+        MergeSortedArrays meArrays = new MergeSortedArrays();
+        int[] a = { 1, 7, 21, 36 };
+        int[] b = { 2, 9, 15, 42 };
+        int[] c = meArrays.mergeSortedArrays(a, b);
+        for (int i : c) {
+            System.out.print(i + ",");
+        }
+        System.out.println("\n");
+        // partition array
+        int[] d = { 21, 3, 34, 5, 45, 8, 2, 68, 1, 19 };
+        PartitionArray partitionArray = new PartitionArray();
+        int[] arr = partitionArray.partitionArray(d, 4);
+        for (int i : arr) {
+            System.out.print(i + ",");
+        }
+        
+        System.out.println("\n");
+        QuickSort quickSort = new QuickSort();
+        int[] q = quickSort.sort(d, 0, d.length - 1);
+        for (int i : q) {
+            System.out.println(i);
+        }
+        
+        System.out.println("\n");
+        KthSmallest kthsmallest = new KthSmallest();
+        int k = kthsmallest.kthsmallest(d, 0);
+        System.out.println(k);
+    }
 
 }
