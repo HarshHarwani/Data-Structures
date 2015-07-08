@@ -25,7 +25,7 @@ public class ArrayDriver {
         }
         System.out.println("\n");
         // partition array
-        int[] d = { 21, 3, 34, 5, 45, 8, 2, 68, 1, 19 };
+        int[] d = { 52 ,43, 37, 87, 46, 60, 36, 35, 24, 90, 27, 72 };
         PartitionArray partitionArray = new PartitionArray();
         int[] arr = partitionArray.partitionArray(d, 4);
         for (int i : arr) {
@@ -36,13 +36,20 @@ public class ArrayDriver {
         QuickSort quickSort = new QuickSort();
         int[] q = quickSort.sort(d, 0, d.length - 1);
         for (int i : q) {
-            System.out.println(i);
+            System.out.print(i+" ");
         }
         
         System.out.println("\n");
         KthSmallest kthsmallest = new KthSmallest();
         int k = kthsmallest.kthsmallest(d, 0);
         System.out.println(k);
+        RatMaze ratMaze=new RatMaze(4);
+        int[][] maze={ {1, 0, 0, 0},
+                {1, 1, 0, 1},
+                {0, 1, 0, 0},
+                {1, 1, 1, 1}
+            };
+        ratMaze.solveMaze(maze);
     }
 
 }
