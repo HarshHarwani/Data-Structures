@@ -1,5 +1,6 @@
 package arrays;
 
+
 public class ArrayDriver {
 
     public static void main(String args[]) {
@@ -10,7 +11,7 @@ public class ArrayDriver {
 
         // Hashmap implementation
 
-        HHashMap<String> hashMap = new HHashMap<String>();
+  /*      HHashMap<String> hashMap = new HHashMap<String>();
         hashMap.put("Harsh", "Gajab");
         hashMap.put("Harsh", "Bhukka");
         hashMap.put("Nikul", "Gajab");
@@ -44,12 +45,15 @@ public class ArrayDriver {
         int k = kthsmallest.kthsmallest(d, 0);
         System.out.println(k);
         RatMaze ratMaze=new RatMaze(4);
-        int[][] maze={ {1, 0, 0, 0},
+        int[][] maze={ {1, 1, 1, 1},
                 {1, 1, 0, 1},
-                {0, 1, 0, 0},
-                {1, 1, 1, 1}
+                {0, 1, 0, 1},
+                {0, 1, 0, 1}
             };
-        ratMaze.solveMaze(maze);
+        ratMaze.solveMaze(maze);*/
+        int[] d = { 52 ,43, 37, 87, 46, 60, 36, 35, 24, 90, 27, 72 };
+        MergeSort mergeSort=new MergeSort();
+        mergeSort.sort(d);    
     }
 
 }
