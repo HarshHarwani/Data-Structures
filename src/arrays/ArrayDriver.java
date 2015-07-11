@@ -1,5 +1,6 @@
 package arrays;
 
+import java.util.List;
 
 public class ArrayDriver {
 
@@ -11,7 +12,7 @@ public class ArrayDriver {
 
         // Hashmap implementation
 
-  /*      HHashMap<String> hashMap = new HHashMap<String>();
+        HHashMap<String> hashMap = new HHashMap<String>();
         hashMap.put("Harsh", "Gajab");
         hashMap.put("Harsh", "Bhukka");
         hashMap.put("Nikul", "Gajab");
@@ -50,10 +51,15 @@ public class ArrayDriver {
                 {0, 1, 0, 1},
                 {0, 1, 0, 1}
             };
-        ratMaze.solveMaze(maze);*/
-        int[] d = { 52 ,43, 37, 87, 46, 60, 36, 35, 24, 90, 27, 72 };
+        ratMaze.solveMaze(maze);
+        int[] e = { 10 ,-8, -2, 5, -3, 4, -5, 8, 24, 90, 27, 72 };
         MergeSort mergeSort=new MergeSort();
-        mergeSort.sort(d);    
+        mergeSort.sort(e);
+        ThreeSum threeSum=new ThreeSum();
+        List<List<Integer>>list=threeSum.threeSum(e);
+       for(List<Integer> l : list){
+           System.out.println(l.toString());
+       }
     }
 
 }
