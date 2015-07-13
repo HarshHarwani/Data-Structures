@@ -60,6 +60,14 @@ public class ArrayDriver {
        for(List<Integer> l : list){
            System.out.println(l.toString());
        }
+    
+        int[][] spiral={ {1, 2, 3, 4},
+                {5, 6, 7, 8},
+                {9, 10, 11,12 },
+                {13, 14, 15, 16}
+            };
+        PrintSpiral printSpiral=new PrintSpiral();
+        printSpiral.printSpiralOrder(spiral);
     }
 
 }
