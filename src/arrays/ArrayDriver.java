@@ -12,7 +12,7 @@ public class ArrayDriver {
 
         // Hashmap implementation
 
-        HHashMap<String> hashMap = new HHashMap<String>();
+    /*    HHashMap<String> hashMap = new HHashMap<String>();
         hashMap.put("Harsh", "Gajab");
         hashMap.put("Harsh", "Bhukka");
         hashMap.put("Nikul", "Gajab");
@@ -75,7 +75,24 @@ public class ArrayDriver {
                 {13, 14, 56, 16}
             };
         SetZeros sZeros=new SetZeros();
-        sZeros.setZeros(setZeros);
-    }
+        sZeros.setZeros(setZeros);*/
+        
+        
+/*        MergeSorted1 meSorted1=new MergeSorted1();
+        int[] a={8,9,10,-1,-1,-1};
+        int[] b={1,3,4};
+        meSorted1.MergeSortedBuffer(a, b, 3, 3);
+        
+*/   
+        /*int[] a={12,14,18,21,3,6,9};
+        CircularSorted cSorted=new CircularSorted();
+        int result=cSorted.searchCircularSorted(a,3, 0, a.length-1);
+        System.out.println(result);
+*/    
+        String[] s={"at","","","","ball","","","cat","","","dad","",""};
+        FindSortedString fString=new FindSortedString();
+        int r=fString.searchString(s, "ball", 0, s.length-1);
+        System.out.println(r);
+        }
 
 }
