@@ -1,6 +1,5 @@
 package arrays;
 
-
 //find an element in a circular sorted Array
 public class CircularSorted {
 
@@ -17,7 +16,7 @@ public class CircularSorted {
                 return searchCircularSorted(a, x, mid + 1, high); // search
                                                                   // right
             }
-        } else if (a[mid] <= a[high]) { //right segment is sorted
+        } else if (a[mid] <= a[high]) { // right segment is sorted
             if (x > a[mid] && x <= a[high]) {
                 return searchCircularSorted(a, x, mid + 1, high); // search
                                                                   // right

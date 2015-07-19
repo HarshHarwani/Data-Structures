@@ -12,6 +12,9 @@ public class TreeDriver {
         bst.insert(40);
         bst.insert(70);
         Node root = bst.root;
+        bst.inOrder();
+        Node node=bst.delete(30);
+        bst.inOrder(node);
         System.out.println(new hasPathSum().isPathSum(root, 60));
     }
 

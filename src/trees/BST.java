@@ -31,12 +31,51 @@ public class BST {
         return search(root, x);
     }
 
-    public void delete(int x) {
-        delete(root, x);
+    public Node delete(int x) {
+        return delete(root, x);
     }
 
-    private void delete(Node r, int x) {
-            
+    // need to check
+    private Node delete(Node r, int x) {
+        if (r == null)
+            return r;
+        else if (x < r.data)
+            r.left = delete(r.left, x);
+        else if (x > r.data)
+            r.right = delete(r.right, x);
+        else {
+            if (r.left == null && r.right == null) {
+                r = null;
+            } else if (r.left == null) {
+                @SuppressWarnings("unused")
+                Node temp = r;
+                r = r.right;
+                temp = null;
+            } else if (r.right == null) {
+                @SuppressWarnings("unused")
+                Node temp = r;
+                r = r.left;
+                temp = null;
+            } else {
+                Node temp = findmin(r.right);
+                r.data = temp.data;
+                r.right = delete(r.right, temp.data);
+            }
+        }
+        return r;
+
+    }
+
+    private Node findmin(Node right) {
+        if (right == null)
+            return null;
+        else {
+            Node current = right;
+            while (current.left != null) {
+                current = current.left;
+            }
+            return current;
+        }
     }
 
     private boolean search(Node r, int x) {
@@ -59,7 +98,7 @@ public class BST {
         inOrder(root);
     }
 
-    private void inOrder(Node r) {
+    public void inOrder(Node r) {
         if (r != null) {
             inOrder(r.left);
             System.out.println(r.data);
@@ -135,9 +174,8 @@ public class BST {
 
     }
 
-   
-
 }
+
 class Node {
     Node left;
     Node right;
