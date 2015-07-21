@@ -78,7 +78,7 @@ public class BST {
         }
     }
 
-    private boolean search(Node r, int x) {
+    public boolean search(Node r, int x) {
         boolean found = false;
         while (r != null && !found) {
             if (x < r.data)
@@ -92,6 +92,19 @@ public class BST {
             found = search(r, x);
         }
         return found;
+    }
+
+    public Node getReference(Node r, int x) {
+        while (r != null) {
+            if (x < r.data)
+                r = r.left;
+            else if (x > r.data)
+                r = r.right;
+            else {
+                return r;
+            }
+        }
+        return null;
     }
 
     public void inOrder() {
