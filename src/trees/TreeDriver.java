@@ -7,13 +7,17 @@ public class TreeDriver {
 
     public static void main(String args[]) {
         BST bst = new BST();
+        bst.insert(15);
+        bst.insert(10);
+        bst.insert(20);
         bst.insert(8);
-        bst.insert(5);
-        bst.insert(14);
-        bst.insert(2);
-        bst.insert(6);
         bst.insert(12);
+        bst.insert(6);
+        bst.insert(11);
+        bst.insert(17);
+        bst.insert(25);
         bst.insert(16);
+        bst.insert(27);
         Node root = bst.root;
         BST bst1 = new BST();
         bst1.insert(5);
@@ -41,8 +45,8 @@ public class TreeDriver {
             System.out.print("\n");
         }
         LowestCommonAncesstor lAncesstor = new LowestCommonAncesstor();
-        Node p = bst.getReference(root, 2);
-        Node q = bst.getReference(root, 0);
+        Node p = bst.getReference(root, 8);
+        Node q = bst.getReference(root, 12);
         Node lca = lAncesstor.getLowestCommonAncesstorBst(root, p, q);
         if (lca != null) {
             System.out.println("The lowest common ancesstor is-->" + lca.data);
@@ -54,6 +58,8 @@ public class TreeDriver {
         System.out.println(sTree.isSubTree(root, root1));
         isBinarySearchTree iSearchTree = new isBinarySearchTree();
         System.out.println(iSearchTree.isBst(root));
+        InorderSuccessor inSuccessor=new InorderSuccessor();
+        System.out.println(inSuccessor.getInorderSuccessor(root, 12).data);
     }
 
 }
