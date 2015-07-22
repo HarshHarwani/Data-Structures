@@ -3,6 +3,8 @@ package trees;
 import java.util.LinkedList;
 import java.util.List;
 
+import trees.TreeNode;
+
 public class TreeDriver {
 
     public static void main(String args[]) {
@@ -58,8 +60,16 @@ public class TreeDriver {
         System.out.println(sTree.isSubTree(root, root1));
         isBinarySearchTree iSearchTree = new isBinarySearchTree();
         System.out.println(iSearchTree.isBst(root));
-        InorderSuccessor inSuccessor=new InorderSuccessor();
+        InorderSuccessor inSuccessor = new InorderSuccessor();
         System.out.println(inSuccessor.getInorderSuccessor(root, 12).data);
+        TreeNode broot = new TreeNode(1);
+        broot.left = new TreeNode(2);
+        broot.right = new TreeNode(3);
+        broot.left.left = new TreeNode(4);
+        broot.left.right = new TreeNode(5);
+        DiameterBinaryTree diameterBinaryTree=new DiameterBinaryTree();
+        System.out.println("The diameter of the tree is-->" + diameterBinaryTree.getDiameter(broot));
+
     }
 
 }

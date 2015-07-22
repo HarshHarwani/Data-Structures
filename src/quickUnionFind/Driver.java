@@ -1,5 +1,5 @@
 package quickUnionFind;
-import Stack.NextGreaterElement;
+import stackqueue.NextGreaterElement;
 
 public class Driver {
 
