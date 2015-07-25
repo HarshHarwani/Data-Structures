@@ -12,7 +12,7 @@ public class ArrayDriver {
 
         // Hashmap implementation
 
-   /*     HHashMap<String> hashMap = new HHashMap<String>();
+        HHashMap<String> hashMap = new HHashMap<String>();
         hashMap.put("Harsh", "Gajab");
         hashMap.put("Harsh", "Bhukka");
         hashMap.put("Nikul", "Gajab");
@@ -82,7 +82,7 @@ public class ArrayDriver {
 
         int[] aaa = { 8, 11, 12, 2, 3, 5 };
         FindRotationCount fiCount = new FindRotationCount();
-        System.out.println(fiCount.getRotationcount(aaa));*/
+        System.out.println(fiCount.getRotationcount(aaa));
         int[] cele={5, 4, 2, 7, 3, 6};
         ConsecutiveElements cElements=new ConsecutiveElements();
         System.out.println(cElements.isConsecutiveElements(cele,cele.length));
