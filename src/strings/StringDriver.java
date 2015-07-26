@@ -28,6 +28,14 @@ public class StringDriver {
         String string = "ABCD";
         AllCombinations perm = new AllCombinations(string);
         perm.getAllCombinations(new int[s.length()], 0, string.length() - 1);
+        
+        
+        String n="I am Harsh Harwani";
+        String20 string20=new String20();
+        System.out.println(string20.replaceString20(n));
+        String c="hhhhhhhhhhhhhhhhhhaaaaaaaaaaaaaaarrrrrrrrrrrrrrssssssssssshhhhhhhhhhhh";
+        StringCompression compression=new StringCompression();
+        System.out.println(compression.getCompressesString(c));
 
     }
 }
