@@ -14,9 +14,12 @@ public class DynamicDriver {
         long elapsedTime1 = stopTime1 - startTime1;
         System.out.println("The running time is after dp is-->"+(elapsedTime1/1000)+"seconds");
         final int[] coins = new int[]{1, 5, 10, 25};
-        final int target = 46;
+        final int target = 3;
         CoinChanging cc=new CoinChanging(coins, target);
         System.out.println(cc.getCoinChange());
+        int a[] =  {-2, -3, 4, -1, -2, 1, 5, -3};
+        LargestSubArraySum lArraySum=new LargestSubArraySum();
+        System.out.println(lArraySum.getLargestSum(a));
         
     }
 
