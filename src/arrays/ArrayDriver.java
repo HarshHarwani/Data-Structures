@@ -86,6 +86,18 @@ public class ArrayDriver {
         int[] cele={5, 4, 2, 7, 3, 6};
         ConsecutiveElements cElements=new ConsecutiveElements();
         System.out.println(cElements.isConsecutiveElements(cele,cele.length));
+        
+        int[] s1={1, 2, 4, 5, 6};
+        int[] s2={2, 3, 5, 7};
+        IntersectionSortedArrays iArrays=new IntersectionSortedArrays();
+        List<Integer> l=iArrays.intersection(s1, s2);
+        System.out.print("Intersection is -->");
+        for(int i:l){
+            System.out.print(i+",");
+        }
+        int[] t={1,2,3,4,5};
+        SpecialTriangle sTriangle=new SpecialTriangle();
+        sTriangle.Triangle(t);
     }
 
 }

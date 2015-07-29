@@ -35,9 +35,7 @@ public class OverLappingIntervals {
         return result;
     }
     
-   /* public String toString(List<Interval> intervals){
-            
-    }*/
+
 }
 
 class Interval {
