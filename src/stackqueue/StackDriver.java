@@ -1,11 +1,13 @@
     package stackqueue;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class StackDriver {
 
     public static void main(String args[]) {
-        FindRange findRange = new FindRange();
+     /*   FindRange findRange = new FindRange();
         findRange.push(1);
         findRange.push(45);
         findRange.push(65);
@@ -42,7 +44,14 @@ public class StackDriver {
         Stack<Integer> a = sortStack.getSortedStack(testStack);
         for (int i : a) {
             System.out.println(i);
-        }
+        }*/
+        OverLappingIntervals ovIntervals=new OverLappingIntervals();
+        List<Interval> list=new ArrayList<Interval>();
+        list.add(new Interval(1, 3));
+        list.add(new Interval(2, 4));
+        list.add(new Interval(5, 7));
+        list.add(new Interval(6, 8));
+        ovIntervals.getoverLappingIntervals(list);
     }
 
 }

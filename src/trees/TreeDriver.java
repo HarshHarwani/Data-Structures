@@ -14,14 +14,10 @@ public class TreeDriver {
         bst.insert(20);
         bst.insert(8);
         bst.insert(12);
-        bst.insert(6);
-        bst.insert(11);
         bst.insert(17);
         bst.insert(25);
-        bst.insert(16);
-        bst.insert(27);
         Node root = bst.root;
-        BST bst1 = new BST();
+/*        BST bst1 = new BST();
         bst1.insert(5);
         bst1.insert(2);
         bst1.insert(6);
@@ -68,7 +64,9 @@ public class TreeDriver {
         broot.left.left = new TreeNode(4);
         broot.left.right = new TreeNode(5);
         DiameterBinaryTree diameterBinaryTree=new DiameterBinaryTree();
-        System.out.println("The diameter of the tree is-->" + diameterBinaryTree.getDiameter(broot));
+        System.out.println("The diameter of the tree is-->" + diameterBinaryTree.getDiameter(broot));*/
+        SpiralOrder sOrder=new SpiralOrder();
+        sOrder.printSpiralOrder(root);
 
     }
 
