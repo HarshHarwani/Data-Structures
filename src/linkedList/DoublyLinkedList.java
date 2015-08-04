@@ -7,41 +7,41 @@ package linkedList;
 import java.util.Scanner;
 
 /*  Class Node  */
-class Node {
-    protected int data;
-    protected Node next, prev;
+class DllNode {
+    public int data;
+    public DllNode next, prev;
 
     /* Constructor */
-    public Node() {
+    public DllNode() {
         next = null;
         prev = null;
         data = 0;
     }
 
     /* Constructor */
-    public Node(int d, Node n, Node p) {
-        data = d;
-        next = n;
-        prev = p;
+    public DllNode(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
     }
 
     /* Function to set link to next node */
-    public void setLinkNext(Node n) {
+    public void setLinkNext(DllNode n) {
         next = n;
     }
 
     /* Function to set link to previous node */
-    public void setLinkPrev(Node p) {
+    public void setLinkPrev(DllNode p) {
         prev = p;
     }
 
     /* Funtion to get link to next node */
-    public Node getLinkNext() {
+    public DllNode getLinkNext() {
         return next;
     }
 
     /* Function to get link to previous node */
-    public Node getLinkPrev() {
+    public DllNode getLinkPrev() {
         return prev;
     }
 
@@ -58,20 +58,20 @@ class Node {
 
 /* Class linkedList */
 class DoubleLinkedList {
-    protected Node start;
-    protected Node end;
+    public DllNode head;
+    public DllNode tail;
     public int size;
 
     /* Constructor */
     public DoubleLinkedList() {
-        start = null;
-        end = null;
+        head = null;
+        tail = null;
         size = 0;
     }
 
     /* Function to check if list is empty */
     public boolean isEmpty() {
-        return start == null;
+        return head == null;
     }
 
     /* Function to get size of list */
@@ -81,84 +81,81 @@ class DoubleLinkedList {
 
     /* Function to insert element at begining */
     public void insertAtStart(int val) {
-        Node nptr = new Node(val, null, null);
-        if (start == null) {
-            start = nptr;
-            end = start;
+        DllNode node = new DllNode(val);
+        if (head == null) { // case where the list is empty
+            head = node;
+            tail = node;
         } else {
-            start.setLinkPrev(nptr);
-            nptr.setLinkNext(start);
-            start = nptr;
+            head.prev = node;
+            node.next = head;
+            node.prev = null;
+            head = node;
         }
         size++;
     }
 
     /* Function to insert element at end */
     public void insertAtEnd(int val) {
-        Node nptr = new Node(val, null, null);
-        if (start == null) {
-            start = nptr;
-            end = start;
+        if (tail == null) {
+            insertAtStart(val);
         } else {
-            nptr.setLinkPrev(end);
-            end.setLinkNext(nptr);
-            end = nptr;
+            DllNode node = new DllNode(val);
+            tail.next = node;
+            node.prev = tail;
+            tail = node;
         }
         size++;
     }
 
     /* Function to insert element at position */
     public void insertAtPos(int val, int pos) {
-        Node nptr = new Node(val, null, null);
-        if (pos == 1) {
+        if (pos == 0) { // case 1st insert as the first element
             insertAtStart(val);
             return;
-        }
-        Node ptr = start;
-        for (int i = 2; i <= size; i++) {
-            if (i == pos) {
-                Node tmp = ptr.getLinkNext();
-                ptr.setLinkNext(nptr);
-                nptr.setLinkPrev(ptr);
-                nptr.setLinkNext(tmp);
-                tmp.setLinkPrev(nptr);
+        } else if (pos == size) { // insert at last element
+            insertAtEnd(val);
+            return;
+        } else { // specific position
+            DllNode node = new DllNode(val);
+            DllNode current = head;
+            for (int i = 0; i < pos - 1; i++) {
+                current = current.next;
             }
-            ptr = ptr.getLinkNext();
+            DllNode next = current.next;
+            current.next = node;
+            node.prev = current;
+            node.next = next;
+            next.prev = current;
         }
         size++;
     }
 
     /* Function to delete node at position */
     public void deleteAtPos(int pos) {
-        if (pos == 1) {
+        if (pos == 0) { // first element is to be removed
             if (size == 1) {
-                start = null;
-                end = null;
+                head = null;
+                tail = null;
                 size = 0;
                 return;
             }
-            start = start.getLinkNext();
-            start.setLinkPrev(null);
+            head = head.next;
+            head.prev = null;
             size--;
-            return;
-        }
-        if (pos == size) {
-            end = end.getLinkPrev();
-            end.setLinkNext(null);
+        } else if (pos == size - 1) { // last element is to be removed
+            DllNode prev = tail.prev;
+            prev.next = null;
             size--;
-        }
-        Node ptr = start.getLinkNext();
-        for (int i = 2; i <= size; i++) {
-            if (i == pos) {
-                Node p = ptr.getLinkPrev();
-                Node n = ptr.getLinkNext();
-
-                p.setLinkNext(n);
-                n.setLinkPrev(p);
-                size--;
-                return;
+        } else {
+            DllNode current = head;
+            for (int i = 0; i < pos; i++) {
+                current = current.next;
             }
-            ptr = ptr.getLinkNext();
+            DllNode next = current.next;
+            DllNode prev = current.prev;
+            prev.next = next;
+            next.prev = prev;
+            size--;
         }
     }
 
@@ -169,18 +166,18 @@ class DoubleLinkedList {
             System.out.print("empty\n");
             return;
         }
-        if (start.getLinkNext() == null) {
-            System.out.println(start.getData());
+        if (head.getLinkNext() == null) {
+            System.out.println(head.getData());
             return;
         }
-        Node ptr = start;
-        System.out.print(start.getData() + " <-> ");
-        ptr = start.getLinkNext();
-        while (ptr.getLinkNext() != null) {
-            System.out.print(ptr.getData() + " <-> ");
-            ptr = ptr.getLinkNext();
+        DllNode current = head;
+        System.out.print(head.getData() + " <-> ");
+        current = head.getLinkNext();
+        while (current.getLinkNext() != null) {
+            System.out.print(current.getData() + " <-> ");
+            current = current.getLinkNext();
         }
-        System.out.print(ptr.getData() + "\n");
+        System.out.print(current.getData() + "\n");
     }
 }
 
@@ -217,7 +214,7 @@ public class DoublyLinkedList {
                 int num = scan.nextInt();
                 System.out.println("Enter position");
                 int pos = scan.nextInt();
-                if (pos < 1 || pos > list.getSize())
+                if (pos < 0 || pos > list.getSize())
                     System.out.println("Invalid position\n");
                 else
                     list.insertAtPos(num, pos);
@@ -225,7 +222,7 @@ public class DoublyLinkedList {
             case 4:
                 System.out.println("Enter position");
                 int p = scan.nextInt();
-                if (p < 1 || p > list.getSize())
+                if (p < 0 || p > list.getSize())
                     System.out.println("Invalid position\n");
                 else
                     list.deleteAtPos(p);
