@@ -36,6 +36,10 @@ public class StringDriver {
         String c="hhhhhhhhhhhhhhhhhhaaaaaaaaaaaaaaarrrrrrrrrrrrrrssssssssssshhhhhhhhhhhh";
         StringCompression compression=new StringCompression();
         System.out.println(compression.getCompressesString(c));
+        
+        
 
+        LongestCommonPrefix lCommonPrefix=new LongestCommonPrefix();
+        System.out.println(lCommonPrefix.longestCommonPrefix("HARSH HAR HARSHHHARWA HARSSSH HARRRRRRRRRRRRR"));
     }
 }
