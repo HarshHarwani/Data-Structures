@@ -40,10 +40,10 @@ public class Graph {
 
     public void addEdge(int v, int w) {
         validateVertex(v);
-        validateVertex(w);
+        validateVertex(w); 
         this.E++;
         adj[v].add(w);
-        adj[w].add(v);
+        adj[w].add(v); // in case of directed graph just remove this line
     }
 
     public int degree(int v) {
