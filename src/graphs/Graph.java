@@ -2,16 +2,22 @@ package graphs;
 
 import java.util.LinkedList;
 
-public class Graph {
 
+ 
+
+public class Graph {
+    
+    
     private final int V;
     private int E;
     private LinkedList<Integer>[] adj;
+    private Type type;
 
     @SuppressWarnings("unchecked")
-    public Graph(int v) {
+    public Graph(int v,Type type) {
         this.V = v;
         this.E = 0;
+        this.type=type;
         adj = new LinkedList[this.V];
         for (int i = 0; i < this.V; i++) {
             adj[i] = new LinkedList<Integer>();
@@ -43,6 +49,7 @@ public class Graph {
         validateVertex(w); 
         this.E++;
         adj[v].add(w);
+        if(this.type==Type.undirected)
         adj[w].add(v); // in case of directed graph just remove this line
     }
 
@@ -66,7 +73,7 @@ public class Graph {
     }
     
     public static void main(String args[]){
-        Graph g=new  Graph(6);
+        Graph g=new  Graph(6,Type.undirected);
         g.addEdge(0, 1);
         g.addEdge(1, 2);
         g.addEdge(2, 0);
@@ -78,4 +85,7 @@ public class Graph {
         System.out.println(g.toString());
     }
 
+}
+enum Type{
+    directed,undirected
 }
