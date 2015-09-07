@@ -92,23 +92,23 @@ public class Tries<Value> {
         return keysWithPrefix("");
     }
 
-    private Iterable<String> keysWithPrefix(String key) {
-        Queue<String> results = new LinkedList<>();
-        Node x = get(root, key, 0);
-        collect(x, new StringBuilder(), results);
+    public Iterable<String> keysWithPrefix(String prefix) {
+        Queue<String> results = new LinkedList<String>();
+        Node x = get(root, prefix, 0);
+        collect(x, new StringBuilder(prefix), results);
         return results;
     }
 
-    private void collect(Node x, StringBuilder stringBuilder,
+    private void collect(Node x, StringBuilder prefix,
             Queue<String> results) {
         if (x == null)
             return;
         if (x.val != null)
-            results.add(stringBuilder.toString());
-        for (int c = 0; c < R; c++) {
-            stringBuilder.append(c);
-            collect(x.next[c], stringBuilder, results);
-            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            results.add(prefix.toString());
+        for (char c = 0; c < R; c++) {
+            prefix.append(c);
+            collect(x.next[c], prefix, results);
+            prefix.deleteCharAt(prefix.length() - 1);
         }
     }
 
@@ -158,6 +158,20 @@ public class Tries<Value> {
             collect(x.next[c], prefix, pattern, results);
             prefix.deleteCharAt(prefix.length() - 1);
         }
+    }
+
+    public static void main(String args[]) {
+        Tries<Character> tries = new Tries<>();
+        tries.put("bye", 'a');
+        tries.put("harsh", 'b');
+        tries.put("har", 'c');
+        tries.put("she", 'd');
+        tries.put("shells", 'e');
+        for (String s : tries.keys())
+            System.out.println(s);
+        for (String s : tries.keysWithPrefix("sh"))
+            System.out.println(s);
+        System.out.println("longest prefix-->"+tries.longestPrefixOf("shellsort"));
     }
 
 }

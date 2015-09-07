@@ -25,7 +25,7 @@ public class TreeDriver {
         bst.insert(18);
         bst.insert(24);
         Node root = bst.root;
-/*        BST bst1 = new BST();
+        BST bst1 = new BST();
         bst1.insert(5);
         bst1.insert(2);
         bst1.insert(6);
@@ -59,7 +59,6 @@ public class TreeDriver {
         } else {
             System.out.println("NULL");
         }
-
         SubTree sTree = new SubTree();
         System.out.println(sTree.isSubTree(root, root1));
         isBinarySearchTree iSearchTree = new isBinarySearchTree();
@@ -78,21 +77,21 @@ public class TreeDriver {
         MaximumWidth mWidth=new MaximumWidth();
         System.out.println("the max width is-->"+mWidth.getMaxWidth(root));
         BetweenLevel bLevel=new BetweenLevel();
-        bLevel.printBetweenLevel(root,0, 2);*/
-        /*LinkedList<Integer> list=new LinkedList<>();
+        bLevel.printBetweenLevel(root,0, 2);
+        LinkedList<Integer> list=new LinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
         list.add(4);
         list.add(5);
         list.add(6);
-        SortedLLToBST sBst=new SortedLLToBST();
-        Node root1=sBst.createBst(list);*/
-       // LeftRightView rView=new LeftRightView();
-       // rView.printLeftRightView(root,false);
+        SortedLLToBST sBst1=new SortedLLToBST();
+        Node root2=sBst1.createBst(list);
+       LeftRightView rView=new LeftRightView();
+        rView.printLeftRightView(root2,false);
         ReverseAlternate alternate=new ReverseAlternate();
-        Node node=alternate.reverseAlternateLevels(root);
-        bst.inOrder(node);
+        Node node1=alternate.reverseAlternateLevels(root2);
+        bst.inOrder(node1);
 
     }
 

@@ -145,6 +145,30 @@ public class BST {
         }
     }
 
+    public Node floor(int data) {
+        return floor(root, data);
+    }
+
+    // greatest value that is smallest than the input value
+    private Node floor(Node node, int data) {
+        if (node == null)
+            return null;
+        if (node.data == data)
+            return node;
+        if (node.data > data) // if the root data is larger either it can be the
+                              // fllor or the values to the left can be floor
+            return floor(node.left, data);
+        Node t = floor(node.right, data); // if there is any key smaller than
+                                          // the input value but larger than the
+                                          // root of the left sub tree
+        if (t != null) // we return that value otherwise the root of the left
+                       // sub tree is the greatest value that is smaller than
+                       // the input.
+            return t;
+        else
+            return node;
+    }
+
     public boolean isEmpty() {
         return root == null;
     }
@@ -196,7 +220,7 @@ class Node {
 
     public Node(int data) {
         this.data = data;
-        this.left=null;
-        this.right=null;
+        this.left = null;
+        this.right = null;
     }
 }
