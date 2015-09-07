@@ -43,7 +43,8 @@ public class TreeDriver {
         Node r = sBst.createBalancedBst(a, 0, a.length - 1);
         bst.inOrder(r);
         ListAtDepthBtree lAtDepthBtree = new ListAtDepthBtree();
-        List<LinkedList<Node>> lists = lAtDepthBtree.getListAtDepthBtree(root);
+        List<LinkedList<Node>> lists = lAtDepthBtree
+                .getListAtDepthBtree(root);
         for (LinkedList<Node> list : lists) {
             for (Node n : list) {
                 System.out.print(n.data + " ");
@@ -55,7 +56,8 @@ public class TreeDriver {
         Node q = bst.getReference(root, 12);
         Node lca = lAncesstor.getLowestCommonAncesstorBst(root, p, q);
         if (lca != null) {
-            System.out.println("The lowest common ancesstor is-->" + lca.data);
+            System.out.println(
+                    "The lowest common ancesstor is-->" + lca.data);
         } else {
             System.out.println("NULL");
         }
@@ -64,33 +66,36 @@ public class TreeDriver {
         isBinarySearchTree iSearchTree = new isBinarySearchTree();
         System.out.println(iSearchTree.isBst(root));
         InorderSuccessor inSuccessor = new InorderSuccessor();
-        System.out.println(inSuccessor.getInorderSuccessor(root, 12).data);
+        System.out.println(
+                inSuccessor.getInorderSuccessor(root, 12).data);
         TreeNode broot = new TreeNode(1);
         broot.left = new TreeNode(2);
         broot.right = new TreeNode(3);
         broot.left.left = new TreeNode(4);
         broot.left.right = new TreeNode(5);
-        DiameterBinaryTree diameterBinaryTree=new DiameterBinaryTree();
-        System.out.println("The diameter of the tree is-->" + diameterBinaryTree.getDiameter(broot));
-        SpiralOrder sOrder=new SpiralOrder();
+        DiameterBinaryTree diameterBinaryTree = new DiameterBinaryTree();
+        System.out.println("The diameter of the tree is-->"
+                + diameterBinaryTree.getDiameter(broot));
+        SpiralOrder sOrder = new SpiralOrder();
         sOrder.spiralOrder1(root);
-        MaximumWidth mWidth=new MaximumWidth();
-        System.out.println("the max width is-->"+mWidth.getMaxWidth(root));
-        BetweenLevel bLevel=new BetweenLevel();
-        bLevel.printBetweenLevel(root,0, 2);
-        LinkedList<Integer> list=new LinkedList<>();
+        MaximumWidth mWidth = new MaximumWidth();
+        System.out.println(
+                "the max width is-->" + mWidth.getMaxWidth(root));
+        BetweenLevel bLevel = new BetweenLevel();
+        bLevel.printBetweenLevel(root, 0, 2);
+        LinkedList<Integer> list = new LinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
         list.add(4);
         list.add(5);
         list.add(6);
-        SortedLLToBST sBst1=new SortedLLToBST();
-        Node root2=sBst1.createBst(list);
-       LeftRightView rView=new LeftRightView();
-        rView.printLeftRightView(root2,false);
-        ReverseAlternate alternate=new ReverseAlternate();
-        Node node1=alternate.reverseAlternateLevels(root2);
+        SortedLLToBST sBst1 = new SortedLLToBST();
+        Node root2 = sBst1.createBst(list);
+        LeftRightView rView = new LeftRightView();
+        rView.printLeftRightView(root2, false);
+        ReverseAlternate alternate = new ReverseAlternate();
+        Node node1 = alternate.reverseAlternateLevels(root2);
         bst.inOrder(node1);
 
     }
