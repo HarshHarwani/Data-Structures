@@ -7,7 +7,15 @@ public class BST {
 
     Node root;
 
-    public BST() {
+    public Node getRoot() {
+		return root;
+	}
+
+	public void setRoot(Node root) {
+		this.root = root;
+	}
+
+	public BST() {
         root = null;
     }
 
