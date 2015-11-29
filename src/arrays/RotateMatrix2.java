@@ -48,7 +48,10 @@ public class RotateMatrix2 {
 		int[][] m = {{1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}};
-		int[][] result=rotateMatrix(m, 1);
+		int[][] result=rotateMatrix(m, 1
+				
+				
+				);
 		printMatrix(result);
 	}
 	

@@ -6,7 +6,7 @@ import java.util.List;
 public class StringDriver {
     public static void main(String[] args) {
 
-        String[] arrr = { "tar", "rat", "atr", "banana" };
+/*        String[] arrr = { "tar", "rat", "atr", "banana" };
         GroupAnagrams ga = new GroupAnagrams();
         List<String> a = ga.Solution(arrr);
         for (String s : a) {
@@ -39,7 +39,13 @@ public class StringDriver {
         
         
 
-        LongestCommonPrefix lCommonPrefix=new LongestCommonPrefix();
-        System.out.println(lCommonPrefix.longestCommonPrefix("HARSH HAR HARSHHHARWA HARSSSH HARRRRRRRRRRRRR"));
+        LongestCommonPrefix lCommonPrefix=new LongestCommonPrefix();*/
+        //System.out.println(lCommonPrefix.longestCommonPrefix("HARSH HAR HARSHHHARWA HARSSSH HARRRRRRRRRRRRR"));
+        print1Combinations("010011");
     }
+    
+    public static void print1Combinations(String input){
+    		
+    }
+    
 }

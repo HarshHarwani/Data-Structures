@@ -24,5 +24,37 @@ public class ReverseLinkedList<Item> {
 		}
 		return null;
 	}
+	
+	public LLNode<Item> reverseLLLaterHAlf(LLNode<Item> head){
+		try{
+				if(head==null){
+					throw new LinkedListException("LinkedList is Empty");
+				}
+				else{
+					int length=getLength(head);
+					LLNode<Item> prev=null;
+					LLNode<Item> current =head;
+					for(int i=0;i<length/2;i++){
+						prev=current;
+						current=current.next;
+					}
+					prev.next=reverseLL(current);
+					return head;
+				}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	private int getLength(LLNode<Item> head) {
+		int count=0;
+		LLNode<Item> current=head;
+		while(current!=null){
+			current=current.next;
+			count++;
+		}
+		return count;
+	}
 
 }

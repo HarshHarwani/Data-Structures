@@ -7,25 +7,31 @@ public class LinkedListDriver {
 
     public static void main(String args[]) {
         linkedList = new LinkedList<Integer>();
-        linkedList.addFirst(1);
+        linkedList.addLast(1);
+        linkedList.addLast(2);
         linkedList.addLast(3);
-        linkedList.addLast(3);
+        linkedList.addLast(4);
+        linkedList.addLast(5);
         try {
-            linkedList.addLast(8);
+           /* linkedList.addLast(8);
             linkedList.addLast(10);
             linkedList.addLast(11);
-            LLNode<Integer> head = linkedList.getHead();
+           */ LLNode<Integer> head = linkedList.getHead();
             string = linkedList.printLinkedList(head);
             System.out.println("Original List is-->" + string);
+            ReverseLinkedList<Integer> ll=new ReverseLinkedList<>();
+            head=ll.reverseLLLaterHAlf(head);
+            string=linkedList.printLinkedList(head);
+            System.out.println("After reversing later half-->"+string);
             // Calling to get the middlenode of the linkedList.
-            LLNode<Integer> middleNode = new MiddleNodeLinkedList<Integer>().getMiddleNodeLL(head);
+          /*  LLNode<Integer> middleNode = new MiddleNodeLinkedList<Integer>().getMiddleNodeLL(head);
             if (middleNode != null)
                 System.out.println("The middle node is-->" + middleNode.data);
             // Calling to get the nthnode from last of the linkedList.
             LLNode<Integer> nthNodeFromLast = new NthNodeFromLast<Integer>().getNthNodeFromLast(head, 1);
             if (nthNodeFromLast != null)
                 System.out.println("The nth node from last is-->" + nthNodeFromLast.data);
-            // calling to reverse the LinkedList
+          */  // calling to reverse the LinkedList
             /*
              * LLNode<Integer> modifiedHead=new
              * ReverseLinkedList<Integer>().reverseLL(head); System.out.println(
@@ -36,7 +42,7 @@ public class LinkedListDriver {
              * LLNode<Integer> node=linkedList.getItem(modifiedHead, 10);
              * node.next=modifiedHead;
              */
-            LLNode<Integer> startOfLoop = new DetectAndRemoveLoop<Integer>().detectAndRemoveLoop(head);
+          /*  LLNode<Integer> startOfLoop = new DetectAndRemoveLoop<Integer>().detectAndRemoveLoop(head);
             if (startOfLoop != null)
                 System.out.println("Start of the loop is -->" + startOfLoop.data);
             else
@@ -45,9 +51,9 @@ public class LinkedListDriver {
             // Calling to insert a node in a sortedLL
             LLNode<Integer> start = new InsertInSortedLL<Integer>().insertInSorted(head, 15);
             System.out.println(linkedList.printLinkedList(start));
-
+*/
             // calling to remove duplicates from a sortedLL
-            LLNode<Integer> newHead = new RemoveDuplicatesFromSortedLL<Integer>().removeDuplicatesSortedLL(start);
+/*            LLNode<Integer> newHead = new RemoveDuplicatesFromSortedLL<Integer>().removeDuplicatesSortedLL(start);
             System.out
                     .println("LinkedList after removing duplicates is-->" + " " + linkedList.printLinkedList(newHead));
 
@@ -77,10 +83,10 @@ public class LinkedListDriver {
                 System.out.println("Intersection point of the LinkedList is-->" + " " + intersectionPoint.data);
             else
                 System.out.println("There is no intersection point in the linkedList");
-        } catch (LinkedListException e) {
+*/        } catch (LinkedListException e) {
             e.printStackTrace();
         }
-        
+       /* 
         LruCache lCache=new LruCache(4);
         System.out.println(lCache.loadPage(2));  
         System.out.println(lCache.loadPage(3));  
@@ -90,7 +96,7 @@ public class LinkedListDriver {
         System.out.println(lCache.loadPage(1));  
         System.out.println(lCache.loadPage(4));  
         System.out.println(lCache.loadPage(5));  
-        System.out.println(lCache.loadPage(6));  
+        System.out.println(lCache.loadPage(6));  */
 
         // calling to test removeElement functionality
         /*

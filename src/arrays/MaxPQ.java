@@ -2,7 +2,9 @@ package arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.PriorityQueue;
 
+import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 

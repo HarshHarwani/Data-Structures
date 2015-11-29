@@ -28,6 +28,7 @@ public class IsomorphicStrings {
 		if (s.length() == 0 && t.length() == 0)
 			return true;
 		else if (s.length() != t.length())
+			
 			return false;
 		for (int i = 0; i < s.length(); i++) {
 			char c1 = s.charAt(i);

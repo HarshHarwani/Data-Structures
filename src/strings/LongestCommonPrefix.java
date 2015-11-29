@@ -2,9 +2,6 @@ package strings;
 
 public class LongestCommonPrefix {
     String[] arr;
-    
-    
-    
     public String longestCommonPrefix(String s){
         arr=s.split(" ");
         int curr;

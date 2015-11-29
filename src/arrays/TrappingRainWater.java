@@ -1,5 +1,6 @@
 package arrays;
 
+import java.util.Arrays;
 
 /**
  * Given n non-negative integers representing an elevation map where the width of each bar is 1, 
@@ -50,18 +51,13 @@ public class TrappingRainWater {
 		for(int i=a.length-2;i>=0;i-- ){
 			right[i]=Math.max(right[i+1], a[i]);
 		}
-		
 		for(int i=0;i<a.length;i++){
 			water+=Math.min(left[i], right[i])-a[i];
 		}
-		
 		return water;
 	}
-	
-	
-	
 	public static void main(String args[]){
-		int a[] = {3,0,0,2,0,4};
+		int a[] = {0,1,0,2,1,0,1,3,2,1,2,1};
 		System.out.println(getTotalWater(a));
 	}
 }
